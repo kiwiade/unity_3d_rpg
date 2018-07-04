@@ -15,6 +15,14 @@ public class Wall : MonoBehaviour {
         Renderer thingsRenderer;
         thingsRenderer = thing.GetComponent<MeshRenderer>();
         thingsRenderer.material = trans;
+
+        if (transform.childCount > 0)
+        {
+            foreach (Transform child in transform)
+            {
+                child.gameObject.SetActive(false);
+            }
+        }
     }
 
     private void UseNormalMaterial(Transform thing)
@@ -22,6 +30,14 @@ public class Wall : MonoBehaviour {
         Renderer thingsRenderer;
         thingsRenderer = thing.GetComponent<Renderer>();
         thingsRenderer.sharedMaterial = ogMat;
+
+        if (transform.childCount > 0)
+        {
+            foreach (Transform child in transform)
+            {
+                child.gameObject.SetActive(true);
+            }
+        }
     }
 
     // Use this for initialization

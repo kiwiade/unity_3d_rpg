@@ -234,10 +234,10 @@ public class MyCharacter : MonoBehaviour {
         {
             equipSpear();
         }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            equipBow();
-        }
+        //if (Input.GetKeyDown(KeyCode.Alpha4))
+        //{
+        //    equipBow();
+        //}
 
         // 공격
         if (Input.GetKey(KeyCode.LeftControl))
@@ -348,14 +348,7 @@ public class MyCharacter : MonoBehaviour {
     private GameObject makeWeapon(int type)
     {
         // 기존무기 삭제
-        foreach (Transform child in arm.transform)
-        {
-            GameObject.Destroy(child.gameObject);
-        }
-        foreach (Transform child in leftarm.transform)
-        {
-            GameObject.Destroy(child.gameObject);
-        }
+        unequipWeapon();
 
         // 무기생성
         GameObject WeaponManager = GameObject.FindGameObjectWithTag("WeaponManager");
@@ -422,6 +415,22 @@ public class MyCharacter : MonoBehaviour {
         WeaponType = 11;
     }
 
+
+    public void unequipWeapon()
+    {
+        foreach (Transform child in arm.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+        foreach (Transform child in leftarm.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+        WeaponType = 0;
+        MeleeType = 1;
+    }
+
+
     public bool isAttack()
     {
         return Attack;
@@ -435,17 +444,54 @@ public class MyCharacter : MonoBehaviour {
 
         if (other.tag == "Monster")
         {
-            if(other.GetComponent<Monster>().getDeath() == false)
+            if (other.GetComponent<Monster>().getDeath() == false)
+            {
                 PlayerData.HPminus(10);
+                passTime = 0;
+            }
+        }
+
+        if (other.tag == "Monster2" || other.tag == "Monster3")
+        {
+            if (other.GetComponent<Monster2>().getDeath() == false)
+            {
+                PlayerData.HPminus(10);
+                passTime = 0;
+            }
         }
 
         if (other.tag == "MonsterWeapon")
         {
-            if(other.transform.root.GetComponent<Monster>().getDeath() == false)
+            if (other.transform.root.GetComponent<Monster>().getDeath() == false)
+            {
                 PlayerData.HPminus(10);
+                passTime = 0;
+            }
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        // 한번 맞으면 1.0초이내에는 안맞음
+        if (passTime < 1.0f)
+            return;
+
+        if (other.tag == "Monster")
+        {
+            if (other.GetComponent<Monster>().getDeath() == false)
+            { 
+                PlayerData.HPminus(10);
+                passTime = 0;
+            }
         }
 
-        passTime = 0;
-        // 맞는 이펙트 넣기
+        if (other.tag == "MonsterWeapon")
+        {
+            if (other.transform.root.GetComponent<Monster>().getDeath() == false)
+            { 
+                PlayerData.HPminus(10);
+                passTime = 0;
+            }
+        }
     }
 }

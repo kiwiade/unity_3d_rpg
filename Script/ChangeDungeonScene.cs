@@ -17,6 +17,8 @@ public class ChangeDungeonScene : MonoBehaviour {
 
     public void ChangeScene()
     {
+        PlayerData.Save();
+
         SceneManager.LoadScene("DunGeon");
     }
 

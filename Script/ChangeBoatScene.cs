@@ -19,6 +19,7 @@ public class ChangeBoatScene : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
+            PlayerData.Save();
             SceneData.setPrevScene(SceneManager.GetActiveScene().name);
             SceneManager.LoadScene("MoveIsland");
         }

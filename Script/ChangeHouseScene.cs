@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ChangeTownScene : MonoBehaviour {
+public class ChangeHouseScene : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -18,7 +18,8 @@ public class ChangeTownScene : MonoBehaviour {
     public void ChangeScene()
     {
         PlayerData.Save();
-        SceneManager.LoadScene("main");
+
+        SceneManager.LoadScene("House");
     }
 
     private void OnTriggerEnter(Collider other)

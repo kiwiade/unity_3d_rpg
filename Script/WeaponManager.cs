@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour {
 
-    public GameObject[] weapon = new GameObject[5];
+    public GameObject[] weapon;
 	// Use this for initialization
 	void Start () {
 		
