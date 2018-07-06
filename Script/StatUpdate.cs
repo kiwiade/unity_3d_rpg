@@ -31,7 +31,7 @@ public class StatUpdate : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        
+        statUpdate();
     }
 
     public void statUpdate()

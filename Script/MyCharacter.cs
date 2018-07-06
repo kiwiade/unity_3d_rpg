@@ -462,7 +462,7 @@ public class MyCharacter : MonoBehaviour {
 
         if (other.tag == "MonsterWeapon")
         {
-            if (other.transform.root.GetComponent<Monster>().getDeath() == false)
+            if (other.transform.root.GetComponentInChildren<Monster>().getDeath() == false)
             {
                 PlayerData.HPminus(10);
                 passTime = 0;
@@ -487,7 +487,7 @@ public class MyCharacter : MonoBehaviour {
 
         if (other.tag == "MonsterWeapon")
         {
-            if (other.transform.root.GetComponent<Monster>().getDeath() == false)
+            if (other.transform.root.GetComponentInChildren<Monster>().getDeath() == false)
             { 
                 PlayerData.HPminus(10);
                 passTime = 0;

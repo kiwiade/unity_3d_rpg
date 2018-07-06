@@ -7,6 +7,7 @@ public class NPCChat : MonoBehaviour {
 
     public int npcID = 0;
     public int chatNum = 0;
+    public int questNum = 0;
     private List<DialogCanvas.NPCChatdata> chatList = null;
     public int nowChatIndex = 0;
     private bool bShowText = false;
@@ -34,15 +35,43 @@ public class NPCChat : MonoBehaviour {
                 {
                     bShowText = false;
                     nowChatIndex = 0;
-                    dialogcanvas.GetComponent<DialogCanvas>().chatDialogBackground.SetActive(false);
 
-                    // 상점오픈
-                    GameObject.FindGameObjectWithTag("ShopCanvas").GetComponent<ShopItem>().Open_PopupShop();
+                    if (chatNum == 0)
+                    {
+                        dialogcanvas.GetComponent<DialogCanvas>().chatDialogBackground.SetActive(false);
+                        // 상점오픈
+                        GameObject.FindGameObjectWithTag("ShopCanvas").GetComponent<ShopItem>().Open_PopupShop();
+                    }
                 }
                 else
                 {
                     Text text = dialogcanvas.GetComponent<DialogCanvas>().chatDialogText.GetComponent<Text>();
                     text.text = chatList[nowChatIndex].text;
+
+                    if (chatList[nowChatIndex].Quest == 1)
+                    {
+                        // 퀘스트 수락 거절창 띄우기
+                        dialogcanvas.GetComponent<DialogCanvas>().acceptButton.SetActive(true);
+                        dialogcanvas.GetComponent<DialogCanvas>().refuseButton.SetActive(true);
+                        dialogcanvas.GetComponent<DialogCanvas>().QuestNum = questNum;
+
+                        if(questNum == 1)
+                        {
+                            npcID = 2;
+                            chatNum = 2;
+                            questNum = 0;
+
+                            chatList = null;
+                        }
+                        else if(questNum == 0)
+                        {
+                            npcID = 1;
+                            chatNum = 1;
+                            questNum = 1;
+
+                            chatList = null;
+                        }
+                    }
                     nowChatIndex++;
                 }                
             }

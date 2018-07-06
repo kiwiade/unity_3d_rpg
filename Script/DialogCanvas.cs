@@ -15,6 +15,11 @@ public class DialogCanvas : MonoBehaviour {
 
     public GameObject chatDialogBackground;
     public GameObject chatDialogText;
+    public GameObject acceptButton;
+    public GameObject refuseButton;
+
+    [HideInInspector]
+    public int QuestNum = 0;
 
     public Dictionary<int, List<NPCChatdata>> npcChat = new Dictionary<int, List<NPCChatdata>>();
     // Use this for initialization
@@ -92,5 +97,21 @@ public class DialogCanvas : MonoBehaviour {
             streamReader.Close();
             fStream.Close();
         }
+    }
+
+
+    public void Accept()
+    {
+        acceptButton.SetActive(false);
+        refuseButton.SetActive(false);
+        chatDialogBackground.SetActive(false);
+        GameObject.FindGameObjectWithTag("QuestCanvas").GetComponent<QuestCanvas>().addQuest(QuestNum);
+    }
+
+    public void Refuse()
+    {
+        acceptButton.SetActive(false);
+        refuseButton.SetActive(false);
+        chatDialogBackground.SetActive(false);
     }
 }

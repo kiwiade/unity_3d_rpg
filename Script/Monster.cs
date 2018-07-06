@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class Monster : MonoBehaviour {
 
@@ -13,7 +14,11 @@ public class Monster : MonoBehaviour {
     private Animator ani = null;
     private bool detect = false;
     private int monsterHP = 3;
+    private int monsterMaxHP = 3;
     private bool monsterDeath = false;
+
+    public GameObject monsterHealthBar;
+    public GameObject FloatingTextPrefab;
 
 	// Use this for initialization
 	void Start () {
@@ -33,6 +38,11 @@ public class Monster : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        monsterHealthBar.GetComponent<ProgressBar2>().currentPercent = ((float)monsterHP / monsterMaxHP) * 100;
+
+        if (monsterDeath)
+            return;
+
         if (!agent.pathPending && agent.remainingDistance < 0.5f && patrol == true)
             GotoNext();
 
@@ -108,6 +118,11 @@ public class Monster : MonoBehaviour {
                 {
                     monsterHP--;
 
+                    if (FloatingTextPrefab)
+                    {
+                        ShowFloatingText();
+                    }
+
                     // 몬스터 밀려나게
                     Vector3 pushVec = transform.position - player.transform.position;
                     pushVec.y = 0;
@@ -123,12 +138,18 @@ public class Monster : MonoBehaviour {
                 {
                     monsterDeath = true;
 
-                    // 유저 인벤토리에 아이템 들어가고 경험치업
-                    player.GetComponent<MyCharacter>().getItem();
+                    // 랜덤아이템생성 및 경험치업
+                    RandomItemCreate();
+                    PlayerData.MoneyPlus(1);
                     PlayerData.ExpPlus(300);
 
+                    // 골드 이펙트
+                    monsterHealthBar.transform.parent.GetChild(1).gameObject.SetActive(true);
+                    monsterHealthBar.transform.parent.GetComponentInChildren<Text>().text = "+1";
+
                     //죽는 애니메이션
-                    GetComponent<Animator>().SetBool("Death_b", true);
+                    ani.SetInteger("WeaponType_int", 0);
+                    ani.SetBool("Death_b", true);
 
                     // patrol 중지
                     agent.ResetPath();
@@ -138,6 +159,43 @@ public class Monster : MonoBehaviour {
                     Destroy(gameObject, 2.0f);
                 }
             }
+        }
+    }
+
+    public void ShowFloatingText()
+    {
+        var go = Instantiate(FloatingTextPrefab, transform.position, transform.rotation, transform);
+        go.transform.localPosition += new Vector3(0, 4.0f, 0);
+        go.transform.localPosition += new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
+        go.GetComponentInChildren<Text>().text = PlayerData.getATK().ToString();
+    }
+
+    public void RandomItemCreate()
+    {
+        int k = Random.Range(0, 10);
+        if (k < 5)
+            return;
+        else if (k < 8)
+        {
+            // 포션
+            GameObject item = (GameObject)Instantiate(Resources.Load("ItemOnTheGround") as GameObject);
+            item.AddComponent<PickUpItem>();
+
+            var itemDatabase = (ItemDataBaseList)Resources.Load("ItemDatabase");
+            int id = Random.Range(125, 127);
+            item.GetComponent<PickUpItem>().item = itemDatabase.getItemByID(id);
+            item.transform.position = transform.position;
+        }
+        else if (k < 10)
+        {
+            // 장비
+            GameObject item = (GameObject)Instantiate(Resources.Load("ItemOnTheGround") as GameObject);
+            item.AddComponent<PickUpItem>();
+
+            var itemDatabase = (ItemDataBaseList)Resources.Load("ItemDatabase");
+            int id = Random.Range(121, 125);
+            item.GetComponent<PickUpItem>().item = itemDatabase.getItemByID(id);
+            item.transform.position = transform.position;
         }
     }
 }

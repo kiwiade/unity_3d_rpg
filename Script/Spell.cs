@@ -37,6 +37,12 @@ public class Spell : MonoBehaviour {
     [Header("Skill List")]
     public GameObject[] Skill;
 
+    [Space]
+    [Header("Sound")]
+    public AudioClip FlashSound;
+    public AudioClip GhostSound;
+    public AudioClip HealSound;
+
     //private bool teleport = false;
 
     private GameObject player = null;
@@ -82,6 +88,11 @@ public class Spell : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.D))
         {
+            if(D_ID == 1)
+            {
+                PlayerData.MPplus(30);
+            }
+
             if (PlayerData.getMP() >= 30)
             {
                 if (DTime <= 0)
@@ -98,6 +109,11 @@ public class Spell : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.F))
         {
+            if (F_ID == 1)
+            {
+                PlayerData.MPplus(30);
+            }
+
             if (PlayerData.getMP() >= 30)
             {
                 if (FTime <= 0)
@@ -280,6 +296,8 @@ public class Spell : MonoBehaviour {
     // 스펠
     public IEnumerator Heal(char spell)
     {
+        GetComponent<AudioSource>().PlayOneShot(HealSound);
+        yield return new WaitForSeconds(0.2f);
         for (int i = 0; i < 3; i++)
         {
             PlayerData.HPplus(10);
@@ -291,6 +309,8 @@ public class Spell : MonoBehaviour {
 
     public IEnumerator Clearity(char spell)
     {
+        GetComponent<AudioSource>().PlayOneShot(HealSound);
+        yield return new WaitForSeconds(0.2f);
         for (int i = 0; i < 3; i++)
         {
             PlayerData.MPplus(10);
@@ -305,6 +325,8 @@ public class Spell : MonoBehaviour {
         ani.SetFloat("RunSpeed", 2.0f);
         Invoke("resetSpeed", 5.0f);
 
+        GetComponent<AudioSource>().PlayOneShot(GhostSound);
+
         spellTime(spell, 10);
     }
 
@@ -318,12 +340,14 @@ public class Spell : MonoBehaviour {
         Vector3 rot = player.transform.rotation.eulerAngles;
         float rad = rot.y * Mathf.Deg2Rad;
 
-        //Instantiate(FlashEffect, player.transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+        Instantiate(FlashEffect, player.transform.position + new Vector3(0, 1, 0), Quaternion.identity);
 
         Vector3 flashVec = new Vector3(Mathf.Sin(rad) * 7.0f, 0, Mathf.Cos(rad) * 7.0f);
         player.transform.position += flashVec;
 
-        //Instantiate(FlashEffect, player.transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+        Instantiate(FlashEffect, player.transform.position + new Vector3(0, 1, 0), Quaternion.identity);
+
+        GetComponent<AudioSource>().PlayOneShot(FlashSound);
 
         spellTime(spell, 20);
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class Monster2 : MonoBehaviour {
 
@@ -12,12 +13,16 @@ public class Monster2 : MonoBehaviour {
 
     private Animator ani = null;
     private int monsterHP = 3;
+    private int monsterMaxHP = 3;
     private bool monsterDeath = false;
     private string state = "idle";
     private float restTime = 2.0f;
 
-	// Use this for initialization
-	void Start () {
+    public GameObject monsterHealthBar;
+    public GameObject FloatingTextPrefab;
+
+    // Use this for initialization
+    void Start () {
         if (gameObject.tag == "Monster2")
         {
             for (int i = 0; i < Patrol.Length; i++)
@@ -45,7 +50,9 @@ public class Monster2 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(!monsterDeath)
+        monsterHealthBar.GetComponent<ProgressBar2>().currentPercent = ((float)monsterHP / monsterMaxHP) * 100;
+
+        if (!monsterDeath)
         {
             if(state == "idle")
             {
@@ -113,6 +120,9 @@ public class Monster2 : MonoBehaviour {
     // 적이 범위 밖을 나갔을때 기본 패턴으로
     public void BasicPattern()
     {
+        if (monsterDeath)
+            return;
+
         if (destPoint >= 1)
             destPoint--;
         else if (destPoint == 0)
@@ -147,6 +157,11 @@ public class Monster2 : MonoBehaviour {
                 {
                     monsterHP--;
 
+                    if (FloatingTextPrefab)
+                    {
+                        ShowFloatingText();
+                    }
+
                     // 몬스터 밀려나게
                     Vector3 pushVec = transform.position - player.transform.position;
                     pushVec.y = 0;
@@ -167,6 +182,10 @@ public class Monster2 : MonoBehaviour {
                     PlayerData.MoneyPlus(1);
                     PlayerData.ExpPlus(300);
 
+                    // 골드 이펙트
+                    monsterHealthBar.transform.parent.GetChild(1).gameObject.SetActive(true);
+                    monsterHealthBar.transform.parent.GetComponentInChildren<Text>().text = "+1";
+
                     //죽는 애니메이션
                     aniReset();
                     ani.SetBool("Die", true);
@@ -179,6 +198,14 @@ public class Monster2 : MonoBehaviour {
                 }
             }
         }
+    }
+
+    public void ShowFloatingText()
+    {
+        var go = Instantiate(FloatingTextPrefab, transform.position, transform.rotation, transform);
+        go.transform.position += new Vector3(0, 2.0f, 0);
+        go.transform.position += new Vector3(Random.Range(-0.5f, 0.5f), 0, 0);
+        go.GetComponentInChildren<Text>().text = PlayerData.getATK().ToString();
     }
 
     public void RandomItemCreate()

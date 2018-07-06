@@ -30,6 +30,8 @@ public static class PlayerData {
     public static int F_Spell = 10;
     public static float F_SpellTime = 0;
 
+    public static List<int> myquestNum = new List<int>();
+
     // 스탯세팅
     static PlayerData()
     {
@@ -219,6 +221,14 @@ public static class PlayerData {
         saveData.Add("D_SpellTime", D_SpellTime.ToString());
         saveData.Add("F_Spell", F_Spell.ToString());
         saveData.Add("F_SpellTime", F_SpellTime.ToString());
+
+        JArray questnum = new JArray();
+        for (int i = 0; i < myquestNum.Count; i++)
+        {
+            questnum.Add(myquestNum[i].ToString());
+        }
+        saveData.Add("questnum", questnum);
+
         root.Add("SaveData", saveData);
 
         string savePath = Path.Combine(Application.dataPath, "GameData.json");
@@ -251,6 +261,14 @@ public static class PlayerData {
             }
             else
                 Money = 50;
+
+            myquestNum.Clear();
+            JArray questnum = option["questnum"] as JArray;
+            for (int i = 0; i < questnum.Count; i++)
+            {
+                string strnum = questnum[i].ToString();
+                myquestNum.Add(int.Parse(strnum));
+            }
 
             playerLevel = int.Parse(strLevel);
             playerExp = int.Parse(strExp);
