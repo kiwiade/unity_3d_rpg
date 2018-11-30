@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - way
+  - WeaponManager
+  - Wall
+  - Weapon
+  - Canvas
+  - Slot
+  - EquipmentSystem
+  - MainInventory
+  - CraftSystem
+  - Hotbar
+  - ItemIcon
+  - Slots
+  - Panel
+  - ResultSlot
+  - Timer
+  - Tooltip
+  - DraggingItem
+  - Item
+  - PlayerHP
+  - InventoryCanvas
+  - PlayerMP
+  - PlayerHPMP
+  - PlayerExp
+  - Monster
+  - MonsterWeapon
+  - mapPlayer
+  - BGM
+  - SaveCanvas
+  - DialogCanvas
+  - Monster2
+  - Monster3
+  - NPC
+  - ShopCanvas
+  - SpellCanvas
+  - QuestCanvas
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Player
+  - PlayerMinimapIcon
+  - EnemyMinimapIcon
+  - Enemy
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0

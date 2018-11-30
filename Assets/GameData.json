@@ -1,0 +1,14 @@
+{
+  "SaveData": {
+    "Level": "1",
+    "Exp": "300",
+    "HP": "100",
+    "MP": "90",
+    "Money": "50",
+    "D_Spell": "2",
+    "D_SpellTime": "0",
+    "F_Spell": "3",
+    "F_SpellTime": "0",
+    "questnum": []
+  }
+}
