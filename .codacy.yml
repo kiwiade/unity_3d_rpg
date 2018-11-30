@@ -1,3 +1,4 @@
+---
 exclude_paths:
   - '**/!Materials Collection/**'
   - '**/Demigiant/**'
