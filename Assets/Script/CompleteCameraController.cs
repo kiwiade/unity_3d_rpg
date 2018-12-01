@@ -6,7 +6,8 @@ using System.Collections.Generic;
 public class CompleteCameraController : MonoBehaviour
 {
     private Vector3 offset;         //Private variable to store the offset distance between the player and camera
-    public GameObject target;
+    [SerializeField]
+    private GameObject target;
     float radius = 11f, angleX = -90f, angleY = -45f;
     private bool bClicked = false;
 

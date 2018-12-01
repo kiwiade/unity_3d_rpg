@@ -11,7 +11,12 @@ public class Quest : Singleton<Quest>{
         public int goalNum = 0;
     }
 
-    public Dictionary<int, QuestInfo> questList = new Dictionary<int, QuestInfo>();
+    private Dictionary<int, QuestInfo> questList = new Dictionary<int, QuestInfo>();
+
+    public Dictionary<int, QuestInfo> QuestList
+    {
+        get { return questList; }
+    }
 
     public Quest()
     {
@@ -27,7 +32,7 @@ public class Quest : Singleton<Quest>{
         secondQuest.currentNum = 0;
         secondQuest.goalNum = 5;
 
-        questList[0] = firstQuest;
-        questList[1] = secondQuest;
+        QuestList[0] = firstQuest;
+        QuestList[1] = secondQuest;
     }
 }

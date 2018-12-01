@@ -4,25 +4,39 @@ using UnityEngine;
 
 public class AutoIntensity : MonoBehaviour {
 
-    public Gradient nightDayColor;
+    [SerializeField]
+    private Gradient nightDayColor;
 
-    public float maxIntensity = 3f;
-    public float minIntensity = 0f;
-    public float minPoint = -0.2f;
+    [SerializeField]
+    private readonly float maxIntensity = 3f;
+    [SerializeField]
+    private readonly float minIntensity = 0f;
+    [SerializeField]
+    private float minPoint = -0.2f;
 
-    public float maxAmbient = 1f;
-    public float minAmbient = 0f;
-    public float minAmbientPoint = -0.2f;
+    [SerializeField]
+    private readonly float maxAmbient = 1f;
+    [SerializeField]
+    private readonly float minAmbient = 0f;
+    [SerializeField]
+    private float minAmbientPoint = -0.2f;
 
-    public Gradient nightDayFogColor;
-    public AnimationCurve fogDensityCurve;
-    public float fogScale = 1f;
+    [SerializeField]
+    private Gradient nightDayFogColor;
+    [SerializeField]
+    private AnimationCurve fogDensityCurve;
+    [SerializeField]
+    private float fogScale = 1f;
 
-    public float dayAtmosphereThickness = 0.4f;
-    public float nightAtmosphereThickness = 0.87f;
+    [SerializeField]
+    private float dayAtmosphereThickness = 0.4f;
+    [SerializeField]
+    private float nightAtmosphereThickness = 0.87f;
 
-    public Vector3 dayRotateSpeed;
-    public Vector3 nightRotateSpeed;
+    [SerializeField]
+    private Vector3 dayRotateSpeed;
+    [SerializeField]
+    private Vector3 nightRotateSpeed;
 
     // 낮과 밤 속도변화는 skySpeed를 조정할 것
     private float skySpeed = 1;

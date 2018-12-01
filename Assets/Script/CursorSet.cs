@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class CursorSet : MonoBehaviour {
 
-    public Texture2D defaultCursor;
-    public Texture2D chatCursor;
-    public CursorMode curMode = CursorMode.Auto;
-    public Vector2 hotSpot = Vector2.zero;
+    [SerializeField]
+    private Texture2D defaultCursor;
+    [SerializeField]
+    private Texture2D chatCursor;
+    private readonly CursorMode curMode = CursorMode.Auto;
+    private readonly Vector2 hotSpot = Vector2.zero;
 
     private GameObject player = null;
     // Use this for initialization

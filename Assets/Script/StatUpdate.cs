@@ -4,21 +4,32 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class StatUpdate : MonoBehaviour {
-    public ProgressBar2 stat_HPbar;
-    public ProgressBar2 stat_MPbar;
-    public ProgressBar2 stat_EXPbar;
+    [SerializeField]
+    private ProgressBar2 stat_HPbar;
+    [SerializeField]
+    private ProgressBar2 stat_MPbar;
+    [SerializeField]
+    private ProgressBar2 stat_EXPbar;
 
     [Space]
-    public Text playerLV;
-    public Text HP_Text;
-    public Text MP_Text;
-    public Text EXP_Text;
+    [SerializeField]
+    private Text playerLV;
+    [SerializeField]
+    private Text HP_Text;
+    [SerializeField]
+    private Text MP_Text;
+    [SerializeField]
+    private Text EXP_Text;
 
     [Space]
-    public Text ATK_Text;
-    public Text DEF_Text;
-    public Text SPD_Text;
-    public Text Gold_Text;
+    [SerializeField]
+    private Text ATK_Text;
+    [SerializeField]
+    private Text DEF_Text;
+    [SerializeField]
+    private Text SPD_Text;
+    [SerializeField]
+    private Text Gold_Text;
 
     private void OnEnable()
     {

@@ -13,8 +13,10 @@ public class MyCharacter : MonoBehaviour {
     private Vector3 NavPos = Vector3.zero;
     private bool PathFinding = false;
 
-    public GameObject arm = null;
-    public GameObject leftarm = null;
+    [SerializeField]
+    private GameObject arm = null;
+    [SerializeField]
+    private GameObject leftarm = null;
     private int WeaponType = 0;
     private int MeleeType = 1;
     private GameObject myWeapon = null;
@@ -25,8 +27,10 @@ public class MyCharacter : MonoBehaviour {
     private Vector3 bowPos2 = Vector3.zero;
     private bool Attack = false;
 
-    public GameObject inventory = null;
-    public GameObject inventorytooltip = null;
+    [SerializeField]
+    private GameObject inventory = null;
+    [SerializeField]
+    private GameObject inventorytooltip = null;
 
     private ProgressBarBehaviour playerHPbar = null;
     private ProgressBarBehaviour playerMPbar = null;

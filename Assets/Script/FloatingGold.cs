@@ -5,7 +5,7 @@ using DG.Tweening;
 using UnityEngine.UI;
 
 public class FloatingGold : MonoBehaviour {
-    public float DestroyTime = 2f;
+    private readonly float DestroyTime = 2f;
 
     private float fTime = 0;
     // Use this for initialization

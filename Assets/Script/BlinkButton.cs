@@ -6,25 +6,52 @@ using UnityEngine.UI;
 public class BlinkButton : MonoBehaviour {
 
     private Color buttonColor = Color.white;
-    public float fTime = 0;
-    public string status = "up";
-	
-	// Update is called once per frame
-	void Update () {
-        fTime += Time.deltaTime * 2.0f;
+    private float fTime = 0;
+    [SerializeField]
+    private string status = "up";
 
-        if (status == "down")
-            buttonColor.a = Mathf.Lerp(1, 0, fTime);
-        else
-            buttonColor.a = Mathf.Lerp(0, 1, fTime);
-
-        if (fTime > 1.0f)
+    public float FTime
+    {
+        get
         {
-            fTime = 0;
-            if (status == "down")
-                status = "up";
+            return fTime;
+        }
+
+        set
+        {
+            fTime = value;
+        }
+    }
+
+    public string Status
+    {
+        get
+        {
+            return status;
+        }
+
+        set
+        {
+            status = value;
+        }
+    }
+
+    // Update is called once per frame
+    void Update () {
+        FTime += Time.deltaTime * 2.0f;
+
+        if (Status == "down")
+            buttonColor.a = Mathf.Lerp(1, 0, FTime);
+        else
+            buttonColor.a = Mathf.Lerp(0, 1, FTime);
+
+        if (FTime > 1.0f)
+        {
+            FTime = 0;
+            if (Status == "down")
+                Status = "up";
             else
-                status = "down";
+                Status = "down";
         }
 
         GetComponent<Image>().color = buttonColor;

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 
 public class FloatingText : MonoBehaviour {
-    public float DestroyTime = 3f;
+    private readonly float DestroyTime = 3f;
 	// Use this for initialization
 	void Start () {
         Destroy(transform.parent.gameObject, DestroyTime);

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MapZoom : MonoBehaviour {
 
-    private Vector3 basicPos = new Vector3(-17.63f, 8.256765f, -181.773f);
+    private readonly Vector3 basicPos = new Vector3(-17.63f, 8.256765f, -181.773f);
     private bool clickcheck = false;
     private Vector3 mousePos = Vector3.zero;
 	

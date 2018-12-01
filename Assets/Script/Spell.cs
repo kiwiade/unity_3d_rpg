@@ -27,21 +27,30 @@ public class Spell : MonoBehaviour {
     public Text SkillPointText;
 
     [Header("Resource")]
-    public GameObject Snow;
-    public Texture2D DefaultCursor;
-    public Texture2D TeleportCursor;
-    public GameObject TeleportWindow;
+    [SerializeField]
+    private GameObject Snow;
+    [SerializeField]
+    private Texture2D DefaultCursor;
+    [SerializeField]
+    private Texture2D TeleportCursor;
+    [SerializeField]
+    private GameObject TeleportWindow;
+
     [Space]
-    public GameObject FlashEffect;
+    [SerializeField]
+    private GameObject FlashEffect;
 
     [Header("Skill List")]
     public GameObject[] Skill;
 
     [Space]
     [Header("Sound")]
-    public AudioClip FlashSound;
-    public AudioClip GhostSound;
-    public AudioClip HealSound;
+    [SerializeField]
+    private AudioClip FlashSound;
+    [SerializeField]
+    private AudioClip GhostSound;
+    [SerializeField]
+    private AudioClip HealSound;
 
     //private bool teleport = false;
 
@@ -180,7 +189,6 @@ public class Spell : MonoBehaviour {
     {
         if (id == 4)
         {
-            //teleport = false;
             Cursor.SetCursor(DefaultCursor, new Vector2(30f, 0), CursorMode.Auto);
         }
 
@@ -240,7 +248,7 @@ public class Spell : MonoBehaviour {
                 Snowball('D');
                 break;
             default:
-                break;
+                throw new System.NotSupportedException();
         }
     }
 
@@ -267,7 +275,7 @@ public class Spell : MonoBehaviour {
                 Snowball('F');
                 break;
             default:
-                break;
+                throw new System.NotSupportedException();
         }
     }
 
@@ -349,7 +357,7 @@ public class Spell : MonoBehaviour {
         Vector3 moveVec = new Vector3(Mathf.Sin(rad), 0, Mathf.Cos(rad));
 
         snowball.transform.position = player.transform.position + new Vector3(0, 1.5f);
-        snowball.GetComponent<Snowball>().moveDir = moveVec;
+        snowball.GetComponent<Snowball>().MoveDir = moveVec;
         Destroy(snowball, 2.0f);
 
         spellTime(spell, 10);

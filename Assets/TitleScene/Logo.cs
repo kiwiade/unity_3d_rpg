@@ -5,8 +5,10 @@ using DG.Tweening;
 
 public class Logo : MonoBehaviour {
 
-    public GameObject TitleBackground = null;
-    public GameObject TitleCanvas = null;
+    [SerializeField]
+    private GameObject TitleBackground = null;
+    [SerializeField]
+    private GameObject TitleCanvas = null;
 
 	// Use this for initialization
 	void Start () {

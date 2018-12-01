@@ -7,8 +7,10 @@ public class Wall : MonoBehaviour {
 
     private bool mbAlpha = false;
 
-    public Material trans;
-    public Material ogMat;
+    [SerializeField]
+    private Material trans;
+    [SerializeField]
+    private Material ogMat;
 
     private void UseTransparentMaterial(Transform thing)
     {

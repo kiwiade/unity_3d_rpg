@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class DialogSpace : MonoBehaviour {
 
-    public GameObject SpaceButton = null;
+    [SerializeField]
+    private GameObject SpaceButton = null;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -13,8 +14,8 @@ public class DialogSpace : MonoBehaviour {
         {
             SpaceButton.SetActive(true);
             SpaceButton.GetComponent<Image>().color = Color.white;
-            SpaceButton.GetComponent<BlinkButton>().fTime = 0;
-            SpaceButton.GetComponent<BlinkButton>().status = "up";
+            SpaceButton.GetComponent<BlinkButton>().FTime = 0;
+            SpaceButton.GetComponent<BlinkButton>().Status = "up";
         }
     }
 

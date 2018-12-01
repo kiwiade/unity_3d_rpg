@@ -5,9 +5,12 @@ using UnityEngine.UI;
 
 public class OptionOpen : MonoBehaviour {
 
-    public GameObject SettingCanvas = null;
-    public GameObject SaveCanvas = null;
-    public GameObject SpellCanvas = null;
+    [SerializeField]
+    private GameObject SettingCanvas = null;
+    [SerializeField]
+    private GameObject SaveCanvas = null;
+    [SerializeField]
+    private GameObject SpellCanvas = null;
 
     // Update is called once per frame
     void Update() {

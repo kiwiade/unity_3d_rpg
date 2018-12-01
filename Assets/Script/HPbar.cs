@@ -5,8 +5,10 @@ using ProgressBar;
 
 public class HPbar : MonoBehaviour {
 
-    public ProgressBarBehaviour HP = null;
-    public ProgressBarBehaviour MP = null;
+    [SerializeField]
+    private ProgressBarBehaviour HP = null;
+    [SerializeField]
+    private ProgressBarBehaviour MP = null;
     private ProgressBarBehaviour makedHPbar = null;
     private ProgressBarBehaviour makedMPbar = null;
 

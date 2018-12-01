@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class ShopCard : MonoBehaviour {
 
-    public Image icon = null;
+    [SerializeField]
+    private Image icon = null;
     public Text title = null;
     public Text price = null;
     public int itemID = 0;

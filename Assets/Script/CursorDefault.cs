@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class CursorDefault : MonoBehaviour
 {
-    public Texture2D defaultCursor;
-    public CursorMode curMode = CursorMode.Auto;
-    public Vector2 hotSpot = new Vector2(30, 0);
+    [SerializeField]
+    private Texture2D defaultCursor;
+    private readonly CursorMode curMode = CursorMode.Auto;
+    [SerializeField]
+    private readonly Vector2 hotSpot = new Vector2(30, 0);
 
     // Use this for initialization
     void Start()

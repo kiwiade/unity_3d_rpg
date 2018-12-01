@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Shop2 : MonoBehaviour {
 
-    public GameObject shopcard;
-    public GameObject scrollviewContent;
+    [SerializeField]
+    private GameObject shopcard;
+    [SerializeField]
+    private GameObject scrollviewContent;
 
 	// Use this for initialization
 	void Start () {

@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class QuestCanvas : MonoBehaviour {
 
-    public GameObject QuestBackground;
-    public Text content;
-    public Text content2;
+    [SerializeField]
+    private GameObject QuestBackground;
+    private Text content;
+    private Text content2;
 
     // Use this for initialization
     void Start () {
@@ -49,9 +50,9 @@ public class QuestCanvas : MonoBehaviour {
         content2.text = "";
         foreach (int questnum in PlayerData.myquestNum)
         {
-            content.text += Quest.Instance.questList[questnum].contentText + "\n";
-            content2.text += Quest.Instance.questList[questnum].currentNum.ToString() + " / "
-                + Quest.Instance.questList[questnum].goalNum.ToString() + "\n";
+            content.text += Quest.Instance.QuestList[questnum].contentText + "\n";
+            content2.text += Quest.Instance.QuestList[questnum].currentNum.ToString() + " / "
+                + Quest.Instance.QuestList[questnum].goalNum.ToString() + "\n";
         }
     }
 }

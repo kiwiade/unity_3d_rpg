@@ -7,18 +7,21 @@ using UnityEngine.UI;
 
 public class Monster : MonoBehaviour {
 
-    public Transform[] Patrol = new Transform[4];
+    [SerializeField]
+    private Transform[] Patrol = new Transform[4];
     private int destPoint = 0;
     private NavMeshAgent agent = null;
     private bool patrol = true;
     private Animator ani = null;
     private bool detect = false;
     private int monsterHP = 3;
-    private int monsterMaxHP = 3;
+    private readonly int monsterMaxHP = 3;
     private bool monsterDeath = false;
 
-    public GameObject monsterHealthBar;
-    public GameObject FloatingTextPrefab;
+    [SerializeField]
+    private GameObject monsterHealthBar;
+    [SerializeField]
+    private GameObject FloatingTextPrefab;
 
 	// Use this for initialization
 	void Start () {

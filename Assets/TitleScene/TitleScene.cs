@@ -8,7 +8,8 @@ using UnityEngine.UI;
 
 public class TitleScene : MonoBehaviour {
 
-    public GameObject SettingCanvas = null;
+    [SerializeField]
+    private GameObject SettingCanvas = null;
 
 	// Use this for initialization
 	void Start () {
@@ -22,16 +23,19 @@ public class TitleScene : MonoBehaviour {
     
     public void OptionButton()
     {
-        if (SettingCanvas.activeSelf == false)
+        if (!SettingCanvas.activeSelf)
         {
             SettingCanvas.SetActive(true);
 
-            if (GameData.Instance.GameQuality == 1)
-                SettingCanvas.GetComponentInChildren<Dropdown>().value = 0;
-            else if (GameData.Instance.GameQuality == 3)
-                SettingCanvas.GetComponentInChildren<Dropdown>().value = 1;
-            else if (GameData.Instance.GameQuality == 5)
-                SettingCanvas.GetComponentInChildren<Dropdown>().value = 2;
+            int gameQuality = GameData.Instance.GameQuality;
+            Dropdown optionDropdown = SettingCanvas.GetComponentInChildren<Dropdown>();
+
+            if (gameQuality == 1)
+                optionDropdown.value = 0;
+            else if (gameQuality == 3)
+                optionDropdown.value = 1;
+            else if (gameQuality == 5)
+                optionDropdown.value = 2;
 
             SettingCanvas.GetComponentInChildren<Slider>().value = GameData.Instance.BgmVolume;
             SettingCanvas.GetComponentInChildren<Toggle>().isOn = GameData.Instance.BgmOn;

@@ -5,11 +5,14 @@ using UnityEngine.UI;
 
 public class NPCChat : MonoBehaviour {
 
-    public int npcID = 0;
-    public int chatNum = 0;
-    public int questNum = 0;
+    [SerializeField]
+    private int npcID = 0;
+    [SerializeField]
+    private int chatNum = 0;
+    [SerializeField]
+    private int questNum = 0;
     private List<DialogCanvas.NPCChatdata> chatList = null;
-    public int nowChatIndex = 0;
+    private int nowChatIndex = 0;
     private bool bShowText = false;
 
     private GameObject player = null;

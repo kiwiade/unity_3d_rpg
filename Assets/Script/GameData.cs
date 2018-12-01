@@ -5,7 +5,25 @@ using UnityEngine;
 public class GameData : Singleton<GameData> {
     protected GameData() { }
 
-    public int GameQuality = 5;
-    public float BgmVolume = 1.0f;
-    public bool BgmOn = true;
+    private int gameQuality = 5;
+    private float bgmVolume = 1.0f;
+    private bool bgmOn = true;
+
+    public int GameQuality
+    {
+        get { return gameQuality; }
+        set { gameQuality = value; }
+    }
+
+    public float BgmVolume
+    {
+        get { return bgmVolume; }
+        set { bgmVolume = value; }
+    }
+
+    public bool BgmOn
+    {
+        get { return bgmOn; }
+        set { bgmOn = value; }
+    }
 }

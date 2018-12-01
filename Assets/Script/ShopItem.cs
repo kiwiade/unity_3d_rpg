@@ -30,19 +30,28 @@ public class ShopItem : MonoBehaviour {
 
     public Dictionary<int, ShopItemData> mShopList = new Dictionary<int, ShopItemData>();
 
-    public GameObject shopback;
-    public GameObject tooltip;
-    public Image SelectImage;
-    public Sprite[] itemicon;
+    [SerializeField]
+    private GameObject shopback;
+    [SerializeField]
+    private GameObject tooltip;
+    [SerializeField]
+    private Image SelectImage;
+    [SerializeField]
+    private Sprite[] itemicon;
 
     [Space]
-    public GameObject shopback2;
-    public GameObject Shopcard;
-    public GameObject CompleteWindow;
-    public GameObject FailWindow;
+    [SerializeField]
+    private GameObject shopback2;
+    [SerializeField]
+    private GameObject Shopcard;
+    [SerializeField]
+    private GameObject CompleteWindow;
+    [SerializeField]
+    private GameObject FailWindow;
 
     [Space]
-    public GameObject mainInventory;
+    [SerializeField]
+    private GameObject mainInventory;
 
     private int selectItemID = 0;
 

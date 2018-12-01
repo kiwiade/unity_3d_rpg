@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerMapMove : MonoBehaviour {
 
-    public GameObject player = null;
+    [SerializeField]
+    private GameObject player = null;
     Vector3 playerPos = Vector3.zero;
 
 	// Use this for initialization

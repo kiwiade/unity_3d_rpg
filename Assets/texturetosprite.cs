@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class texturetosprite : MonoBehaviour {
 
-    public RenderTexture texture = null;
+    [SerializeField]
+    private readonly RenderTexture texture = null;
 
 	// Use this for initialization
 	void Start () {

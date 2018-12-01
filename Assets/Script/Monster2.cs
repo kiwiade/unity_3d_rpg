@@ -8,18 +8,21 @@ using UnityEngine.UI;
 public class Monster2 : MonoBehaviour {
 
     private NavMeshAgent agent = null;
-    public Transform[] Patrol = new Transform[4];
+    [SerializeField]
+    private Transform[] Patrol = new Transform[4];
     private int destPoint = 0;
 
     private Animator ani = null;
     private int monsterHP = 5;
-    private int monsterMaxHP = 5;
+    private readonly int monsterMaxHP = 5;
     private bool monsterDeath = false;
     private string state = "idle";
     private float restTime = 2.0f;
 
-    public GameObject monsterHealthBar;
-    public GameObject FloatingTextPrefab;
+    [SerializeField]
+    private GameObject monsterHealthBar;
+    [SerializeField]
+    private GameObject FloatingTextPrefab;
 
     // Use this for initialization
     void Start () {

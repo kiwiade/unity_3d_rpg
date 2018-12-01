@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class MapView : MonoBehaviour {
 
-    public GameObject mapCamera = null;
+    [SerializeField]
+    private GameObject mapCamera = null;
 	
 	// Update is called once per frame
 	void Update () {

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class MinimapMove : MonoBehaviour {
 
-    public GameObject player = null;
+    [SerializeField]
+    private GameObject player = null;
 	
 	// Update is called once per frame
 	void Update () {

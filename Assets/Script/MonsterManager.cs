@@ -12,12 +12,8 @@ public class MonsterInfo
 }
 
 public class MonsterManager : MonoBehaviour {
-    public MonsterInfo[] monsterlist = null;
-
-    // Use this for initialization
-    void Start () {
-		
-	}
+    [SerializeField]
+    private MonsterInfo[] monsterlist = null;
 	
 	// Update is called once per frame
 	void Update () {
