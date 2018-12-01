@@ -7,16 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class Option : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     public void QualityChanging(int value)
     {
         if(value == 0)

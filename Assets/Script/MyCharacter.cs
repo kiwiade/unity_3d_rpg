@@ -41,22 +41,6 @@ public class MyCharacter : MonoBehaviour {
         playerMPbar.ProgressSpeed = 500;
         playerExpbar = GameObject.FindGameObjectWithTag("PlayerExp").GetComponent<ProgressBarBehaviour>();
         playerExpbar.ProgressSpeed = 500;
-
-        //LevelUpData.levels = LevelUpData.ReadCsv();
-        ////IEnumerable <LevelUpData.LevelUp> levels = LevelUpData.ReadCsv();
-        //foreach(LevelUpData.LevelUp lu in LevelUpData.levels)
-        //{
-        //    int a = lu.atk;
-        //    int e = lu.exp;
-        //    print(a + "," + e);
-        //}
-
-        //ItemDatabase.items = ItemDatabase.ReadCsv();
-        //Dictionary<int, ItemDatabase.Item> items = ItemDatabase.items.ToDictionary(x => x.Key, x => x.Value);
-        //ItemDatabase.Item it = items[2];
-        //print(items[1].name);
-        //print(items[101].name);
-        //print(items[201].name);
     }
 
 	
@@ -79,26 +63,16 @@ public class MyCharacter : MonoBehaviour {
         {
             if (Input.GetKey(KeyCode.UpArrow))
             {
-                //transform.DORotate(new Vector3(0, 180, 0), 0.5f);
-                //transform.rotation = Quaternion.Slerp(transform.rotation, Camera.main.transform.rotation, 
-                //transform.DORotate(Camera.main.transform.rotation, 0.5f);
-                //transform.rotation = Camera.main.transform.rotation;
                 bMove = true;
-                //Vector3 nowRot = transform.rotation.eulerAngles;
-                //nowRot.y -= 90.0f;
-                //transform.DORotate(nowRot, 0.5f);
             }
             if (Input.GetKey(KeyCode.DownArrow))
             {
-                //transform.DORotate(new Vector3(0, 0, 0), 0.5f);
-                //transform.rotation = Camera.main.transform.rotation + Quaternion.Euler(0, 180, 0);
                 bMove = true;
                 GetComponent<Animator>().SetBool("Static_b", true);
                 transform.Translate(Vector3.back * Time.deltaTime * 3.0f);
             }
             if (Input.GetKey(KeyCode.LeftArrow))
             {
-                //transform.DORotate(new Vector3(0, 90, 0), 0.5f);
                 if (Camera.main.GetComponent<CompleteCameraController>() != null)
                 {
                     Camera.main.GetComponent<CompleteCameraController>().CameraRight();
@@ -107,14 +81,9 @@ public class MyCharacter : MonoBehaviour {
                     rVec.y = Camera.main.transform.rotation.eulerAngles.y;
                     transform.rotation = Quaternion.Euler(rVec);
                 }
-                //bMove = true;
-                //Vector3 nowRot = transform.rotation.eulerAngles;
-                //nowRot.x -= 90.0f;
-                //transform.DORotate(nowRot, 0.5f);
             }
             if (Input.GetKey(KeyCode.RightArrow))
             {
-                //transform.DORotate(new Vector3(0, -90, 0), 0.5f);
                 if (Camera.main.GetComponent<CompleteCameraController>() != null)
                 {
                     Camera.main.GetComponent<CompleteCameraController>().CameraLeft();
@@ -123,9 +92,6 @@ public class MyCharacter : MonoBehaviour {
                     rVec.y = Camera.main.transform.rotation.eulerAngles.y;
                     transform.rotation = Quaternion.Euler(rVec);
                 }
-                //Vector3 nowRot = transform.rotation.eulerAngles;
-                //nowRot.x += 90.0f;
-                //transform.DORotate(nowRot, 0.5f);
             }
 
             if(Input.GetKeyUp(KeyCode.DownArrow))
@@ -150,43 +116,11 @@ public class MyCharacter : MonoBehaviour {
                 bRun = true;
             }
 
-            //if(Input.GetKeyDown(KeyCode.I))
-            //{
-            //    if (inventory.activeSelf == false)
-            //    {
-            //        inventory.GetComponent<Inventory>().openInventory();
-            //    }
-            //    else
-            //    {
-            //        inventory.GetComponent<Inventory>().closeInventory();
-            //        inventorytooltip.GetComponent<Tooltip>().deactivateTooltip();
-            //    }
-            //}
-
             if (Input.GetKeyDown(KeyCode.X))
             {
                 getItem();
             }
         }
-
-        // 길찾기 - 마우스로 클릭하면 길인 경우에 그곳으로 감 - 지금 안씀
-        /*
-        if (Input.GetMouseButtonUp(0))
-        {
-            Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit[] hit = Physics.RaycastAll(r);
-            foreach(RaycastHit h in hit)
-            {
-                if(h.transform.tag == "way")
-                {
-                    NavPos = h.point;
-                    NavMeshAgent agent = GetComponent<NavMeshAgent>();
-                    agent.destination = NavPos;
-                    PathFinding = true;
-                }
-            }
-        }
-        */
 
         // 목적지에 가고있으면 달리는 모션
         if (PathFinding == true)
@@ -234,10 +168,6 @@ public class MyCharacter : MonoBehaviour {
         {
             equipSpear();
         }
-        //if (Input.GetKeyDown(KeyCode.Alpha4))
-        //{
-        //    equipBow();
-        //}
 
         // 공격
         if (Input.GetKey(KeyCode.LeftControl))
@@ -295,8 +225,6 @@ public class MyCharacter : MonoBehaviour {
                 Attack = false;
                 GetComponent<Animator>().SetBool("Reload_b", true);
                 GetComponent<Animator>().SetBool("Shoot_b", false);
-                //myWeapon.transform.localPosition = Vector3.zero;
-                //myWeapon2.transform.localPosition = Vector3.zero;
             }
 
             if (GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Bow_Load")

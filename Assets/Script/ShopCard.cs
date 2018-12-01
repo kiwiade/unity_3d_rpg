@@ -9,15 +9,6 @@ public class ShopCard : MonoBehaviour {
     public Text title = null;
     public Text price = null;
     public int itemID = 0;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void BuyButton()
     {

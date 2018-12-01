@@ -11,9 +11,4 @@ public class ShopScrollSize : MonoBehaviour {
 
         GetComponent<RectTransform>().sizeDelta = new Vector2(GetComponent<RectTransform>().sizeDelta.x, (Mathf.CeilToInt((float)shopList.Count/2.0f)) * 210.0f);
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

@@ -16,9 +16,4 @@ public class FloatingText : MonoBehaviour {
 
         transform.DOMove(transform.position + new Vector3(0, 1, 0), 3.0f);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

@@ -19,10 +19,6 @@ public class StatUpdate : MonoBehaviour {
     public Text DEF_Text;
     public Text SPD_Text;
     public Text Gold_Text;
-    // Use this for initialization
-    void Start () {
-        
-    }
 
     private void OnEnable()
     {

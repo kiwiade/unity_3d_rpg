@@ -12,16 +12,6 @@ public class FloatingGold : MonoBehaviour {
     void Start()
     {
         Destroy(transform.parent.gameObject, DestroyTime);
-
-        //Color alphaimage = transform.GetComponentInChildren<Image>().color;
-        //alphaimage.a = 0;
-        //transform.GetComponentInChildren<Image>().DOColor(alphaimage, 2.0f);
-
-        //Color alphacolor = transform.GetComponentInChildren<Text>().color;
-        //alphacolor.a = 0;
-        //transform.GetComponentInChildren<Text>().DOColor(alphacolor, 2.0f);
-
-        //transform.DOMove(transform.position + new Vector3(0, 1, 0), 2.0f);
     }
 
     // Update is called once per frame

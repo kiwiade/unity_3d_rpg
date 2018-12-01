@@ -54,10 +54,4 @@ public class QuestCanvas : MonoBehaviour {
                 + Quest.Instance.questList[questnum].goalNum.ToString() + "\n";
         }
     }
-
-    //public void ContentRenew()
-    //{
-    //    content2.text = Quest.Instance.questList[num].currentNum.ToString() + " / "
-    //        + Quest.Instance.questList[num].goalNum.ToString();
-    //}
 }

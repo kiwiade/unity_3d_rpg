@@ -10,9 +10,4 @@ public class Wizard : MonoBehaviour {
         ani.SetInteger("WeaponType_int", 0);
         ani.SetInteger("MeleeType_int", 1);
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

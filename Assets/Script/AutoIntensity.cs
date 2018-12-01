@@ -24,7 +24,8 @@ public class AutoIntensity : MonoBehaviour {
     public Vector3 dayRotateSpeed;
     public Vector3 nightRotateSpeed;
 
-    float skySpeed = 1;
+    // 낮과 밤 속도변화는 skySpeed를 조정할 것
+    private float skySpeed = 1;
 
 
     Light mainLight;
@@ -39,7 +40,6 @@ public class AutoIntensity : MonoBehaviour {
 
     void Update()
     {
-
         float tRange = 1 - minPoint;
         float dot = Mathf.Clamp01((Vector3.Dot(mainLight.transform.forward, Vector3.down) - minPoint) / tRange);
         float i = ((maxIntensity - minIntensity) * dot) + minIntensity;
@@ -64,10 +64,5 @@ public class AutoIntensity : MonoBehaviour {
             transform.Rotate(dayRotateSpeed * Time.deltaTime * skySpeed);
         else
             transform.Rotate(nightRotateSpeed * Time.deltaTime * skySpeed);
-
-        //if (Input.GetKeyDown(KeyCode.Q)) skySpeed *= 0.5f;
-        //if (Input.GetKeyDown(KeyCode.E)) skySpeed *= 2f;
-
-
     }
 }

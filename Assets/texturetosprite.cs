@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class texturetosprite : MonoBehaviour {
 
     public RenderTexture texture = null;
-    private Sprite sp = null;
 
 	// Use this for initialization
 	void Start () {
@@ -14,12 +13,7 @@ public class texturetosprite : MonoBehaviour {
         RenderTexture.active = texture;
         tex.ReadPixels(new Rect(0, 0, texture.width, texture.height), 0, 0);
         tex.Apply();
-        sp = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f), 100.0f);
+        Sprite sp = Sprite.Create(tex, new Rect(0.0f, 0.0f, tex.width, tex.height), new Vector2(0.5f, 0.5f), 100.0f);
         GetComponent<SpriteRenderer>().sprite = sp;
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

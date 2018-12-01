@@ -8,10 +8,6 @@ public class BlinkButton : MonoBehaviour {
     private Color buttonColor = Color.white;
     public float fTime = 0;
     public string status = "up";
-	// Use this for initialization
-	void Start () {
-
-	}
 	
 	// Update is called once per frame
 	void Update () {

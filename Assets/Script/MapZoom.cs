@@ -7,10 +7,6 @@ public class MapZoom : MonoBehaviour {
     private Vector3 basicPos = new Vector3(-17.63f, 8.256765f, -181.773f);
     private bool clickcheck = false;
     private Vector3 mousePos = Vector3.zero;
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
 	// Update is called once per frame
 	void Update () {

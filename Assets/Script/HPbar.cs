@@ -27,11 +27,9 @@ public class HPbar : MonoBehaviour {
 
             GameObject canvas = GameObject.FindGameObjectWithTag("Canvas");
             Vector3 pos = WorldToCanvas.toCanvas(canvas, transform.position + new Vector3(0, 3.2f));
-            //pos.y += 100.0f;
             makedHPbar.transform.position = pos;
 
             Vector3 pos2 = WorldToCanvas.toCanvas(canvas, transform.position + new Vector3(0, 3.0f));
-            //pos.y += 100.0f;
             makedMPbar.transform.position = pos2;
         }
 

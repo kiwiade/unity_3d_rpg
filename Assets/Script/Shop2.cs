@@ -25,9 +25,4 @@ public class Shop2 : MonoBehaviour {
             cardScript.itemID = shopList[i + 1].itemID;
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

@@ -142,7 +142,6 @@ public class Monster2 : MonoBehaviour {
     {
         ani.SetBool("Idle", false);
         ani.SetBool("Move", false);
-        //ani.SetBool("Damage", false);
         ani.SetBool("Attack", false);
     }
 
@@ -212,7 +211,9 @@ public class Monster2 : MonoBehaviour {
     {
         int k = Random.Range(0, 10);
         if (k < 5)
+        {
             return;
+        }
         else if(k < 8)
         {
             // 포션

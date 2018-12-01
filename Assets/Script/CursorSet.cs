@@ -15,11 +15,6 @@ public class CursorSet : MonoBehaviour {
         Cursor.SetCursor(defaultCursor, hotSpot, curMode);
         player = GameObject.FindGameObjectWithTag("Player");
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     private void OnMouseEnter()
     {

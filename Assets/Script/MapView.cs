@@ -5,11 +5,6 @@ using UnityEngine;
 public class MapView : MonoBehaviour {
 
     public GameObject mapCamera = null;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
 	// Update is called once per frame
 	void Update () {

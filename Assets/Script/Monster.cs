@@ -174,7 +174,9 @@ public class Monster : MonoBehaviour {
     {
         int k = Random.Range(0, 10);
         if (k < 5)
+        {
             return;
+        }
         else if (k < 8)
         {
             // 포션

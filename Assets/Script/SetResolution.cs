@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class SetResolution : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+	void Awake () {
         Screen.SetResolution(1280, 720, false);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }

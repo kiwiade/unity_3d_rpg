@@ -128,27 +128,6 @@ public class Spell : MonoBehaviour {
                 }
             }
         }
-
-
-        //if (teleport)
-        //{
-        //    if (Input.GetMouseButtonDown(0))
-        //    {
-        //        RaycastHit[] hits;
-        //        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //        Debug.DrawRay(ray.origin, ray.direction * 1000, Color.blue, 0.5f);
-
-        //        hits = Physics.RaycastAll(ray);
-        //        foreach (RaycastHit hit in hits)
-        //        {
-        //            player.transform.position = hit.point;
-        //            break;
-        //        }
-
-        //        teleport = false;
-        //        Cursor.SetCursor(DefaultCursor, new Vector2(30f, 0), CursorMode.Auto);
-        //    }
-        //}
     }
 
 

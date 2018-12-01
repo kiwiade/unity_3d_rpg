@@ -7,21 +7,6 @@ public class DialogSpace : MonoBehaviour {
 
     public GameObject SpaceButton = null;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    private void OnTriggerStay(Collider other)
-    {
-
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")

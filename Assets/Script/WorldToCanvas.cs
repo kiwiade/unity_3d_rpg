@@ -11,7 +11,6 @@ public static class WorldToCanvas{
         var canRect = canvas.GetComponent<RectTransform>();
 
         Vector2 canvasPos = new Vector2(viewPos.x * canRect.sizeDelta.x, viewPos.y * canRect.sizeDelta.y);
-        //Vector2 canvasPos = new Vector2(viewPos.x, viewPos.y);
 
         return canvasPos;
     }

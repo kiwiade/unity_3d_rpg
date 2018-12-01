@@ -58,15 +58,6 @@ public class ShopItem : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//if(Input.GetKeyDown(KeyCode.K))
-  //      {
-  //          Open_TooltipShop();
-  //      }
-  //      if(Input.GetKeyDown(KeyCode.J))
-  //      {
-  //          Open_PopupShop();
-  //      }
-
         if (tooltip.activeSelf == true)
         {
             tooltip.transform.position = Input.mousePosition + new Vector3(100, 80);
@@ -136,7 +127,6 @@ public class ShopItem : MonoBehaviour {
             trigger.triggers.Add(entry);
 
             item.transform.SetParent(shopback.transform);
-            //item.transform.localPosition = Vector3.zero;
 
             int x = (i%2 == 0) ? -70 : 70;
             item.transform.localPosition = new Vector3(x, 130 - (i/2)*130);

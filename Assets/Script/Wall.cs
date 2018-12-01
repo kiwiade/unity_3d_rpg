@@ -73,8 +73,6 @@ public class Wall : MonoBehaviour {
                 ogMat = transform.GetComponent<Renderer>().material;
 
             UseTransparentMaterial(transform);
-            //MeshRenderer ren = GetComponent<MeshRenderer>();
-            //ren.material.DOFade(0f, 1f);
         }
     }
 }

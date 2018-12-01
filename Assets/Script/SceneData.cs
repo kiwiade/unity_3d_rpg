@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class SceneData {
 
-    public static string PrevSceneName = "";
+    private static string PrevSceneName = "";
 
     public static void setPrevScene(string SceneName)
     {

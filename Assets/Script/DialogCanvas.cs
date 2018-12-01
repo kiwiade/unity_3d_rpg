@@ -27,11 +27,6 @@ public class DialogCanvas : MonoBehaviour {
         readNPCText();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     // 해상도가 바뀔때마다 불림
     private void OnGUI()
     {
