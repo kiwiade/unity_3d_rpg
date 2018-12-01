@@ -36,18 +36,15 @@ public class ShopItem : MonoBehaviour {
     private GameObject tooltip;
     [SerializeField]
     private Image SelectImage;
-    [SerializeField]
-    private Sprite[] itemicon;
+    public Sprite[] itemicon;
 
     [Space]
     [SerializeField]
     private GameObject shopback2;
     [SerializeField]
     private GameObject Shopcard;
-    [SerializeField]
-    private GameObject CompleteWindow;
-    [SerializeField]
-    private GameObject FailWindow;
+    public GameObject CompleteWindow;
+    public GameObject FailWindow;
 
     [Space]
     [SerializeField]

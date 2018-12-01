@@ -7,7 +7,9 @@ public class QuestCanvas : MonoBehaviour {
 
     [SerializeField]
     private GameObject QuestBackground;
+    [SerializeField]
     private Text content;
+    [SerializeField]
     private Text content2;
 
     // Use this for initialization
